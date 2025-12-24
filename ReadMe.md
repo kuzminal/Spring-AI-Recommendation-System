@@ -82,6 +82,40 @@ Docker-сервисы:
     curl -X GET "http://localhost:8080/api/v1/recommendations/content-based/2a50563e-72b9-440c-9601-cfb6ebd2c569?limit=3" \
       -H "Accept: application/json"
 ```
+Ответ будет примерно таким:
+```json
+{
+  "sourceItemId": "2a50563e-72b9-440c-9601-cfb6ebd2c569",
+  "sourceItemTitle": "MacBook Pro 14\"",
+  "recommendations": [
+    {
+      "id": "5aeb7594-e750-4fc5-b044-d3d423998fdf",
+      "title": "iPhone 13 Pro",
+      "description": "Apple smartphone with A15 Bionic chip",
+      "category": "Electronics",
+      "price": 999.99,
+      "similarity": 0.658084031083016
+    },
+    {
+      "id": "3d8fc210-8084-4c94-9762-1f0644099459",
+      "title": "Dell XPS 13",
+      "description": "Windows ultrabook with Intel i7",
+      "category": "Electronics",
+      "price": 1299.99,
+      "similarity": 0.6146245092860945
+    },
+    {
+      "id": "50be850c-de8a-4ba9-9e3c-a5e5c25b69ed",
+      "title": "Samsung Galaxy S21",
+      "description": "Android smartphone with Exynos processor",
+      "category": "Electronics",
+      "price": 899.99,
+      "similarity": 0.5145645841822043
+    }
+  ],
+  "processingTimeMs": 55
+}
+```
 
 ### POST-запрос на получение рекомендаций
 ```http
@@ -90,6 +124,7 @@ Content-Type: application/json
 
 {
   "itemId": "30624494-44fe-44d1-ab60-90dc33a4a899",
+  "category": "Electronics",
   "limit": 3
 }
 ```
